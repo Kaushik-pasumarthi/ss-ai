@@ -1,0 +1,4 @@
+Alembic migration versions directory.
+
+Run `alembic revision --autogenerate -m "initial"` to generate the initial migration,
+then `alembic upgrade head` to apply it.

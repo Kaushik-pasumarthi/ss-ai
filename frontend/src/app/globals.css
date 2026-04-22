@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --neon-cyan: #00f5ff;
+  --neon-blue: #0066ff;
+  --neon-green: #00ff88;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background-color: #030712;
+  color: #e2e8f0;
+  font-family: 'Inter', system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 245, 255, 0.2);
+  border-radius: 16px;
+}
+
+.neon-text-cyan { color: #00f5ff; text-shadow: 0 0 10px #00f5ff; }
+.neon-text-blue { color: #0066ff; text-shadow: 0 0 10px #0066ff; }
+.neon-text-green { color: #00ff88; text-shadow: 0 0 10px #00ff88; }
+
+.neon-border-cyan { border-color: #00f5ff; box-shadow: 0 0 10px rgba(0,245,255,0.3); }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0a0f1e; }
+::-webkit-scrollbar-thumb { background: rgba(0,245,255,0.3); border-radius: 3px; }
+
+.cyber-bg {
+  background-color: #030712;
+  background-image:
+    linear-gradient(rgba(0,245,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,245,255,0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
