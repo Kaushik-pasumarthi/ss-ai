@@ -89,12 +89,18 @@ async def upload_asset(
     db.add(asset)
     db.commit()
 
-    # Dispatch Celery task
-    try:
-        from app.worker.tasks import fingerprint_and_embed
-        fingerprint_and_embed.delay(str(asset_id))
-    except Exception:
-        pass
+    # Run processing in background thread (no Celery needed)
+    import threading
+    def process_async():
+        try:
+            from app.worker.tasks import fingerprint_and_embed
+            fingerprint_and_embed(str(asset_id))
+        except Exception as e:
+            import logging
+            logging.getLogger(__name__).error(f"Processing failed: {e}")
+    
+    thread = threading.Thread(target=process_async, daemon=True)
+    thread.start()
 
     return AssetUploadResponse(asset_id=asset_id, status="uploading", message="Asset upload accepted. Processing started.")
 

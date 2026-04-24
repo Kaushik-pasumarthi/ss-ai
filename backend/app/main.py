@@ -40,6 +40,22 @@ def startup():
     # Ensure upload dirs exist
     for d in ["uploads", "pirated", "heatmaps", "frames"]:
         os.makedirs(os.path.join(settings.upload_dir, d), exist_ok=True)
+    
+    # Start background scan cycle (no Celery needed)
+    import threading
+    import time
+    def scan_loop():
+        time.sleep(30)  # wait for startup
+        while True:
+            try:
+                from app.worker.tasks import run_scan_cycle
+                run_scan_cycle()
+            except Exception:
+                pass
+            time.sleep(60)
+    
+    thread = threading.Thread(target=scan_loop, daemon=True)
+    thread.start()
 
 
 @app.get("/health")
