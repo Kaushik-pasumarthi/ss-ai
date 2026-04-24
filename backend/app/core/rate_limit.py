@@ -10,7 +10,11 @@ def get_redis():
     global _redis_client
     if _redis_client is None:
         try:
-            _redis_client = redis_lib.from_url(settings.redis_url, decode_responses=True, socket_connect_timeout=2)
+            url = settings.redis_url
+            if url.startswith("rediss://"):
+                _redis_client = redis_lib.from_url(url, decode_responses=True, ssl_cert_reqs=None, socket_connect_timeout=2)
+            else:
+                _redis_client = redis_lib.from_url(url, decode_responses=True, socket_connect_timeout=2)
         except Exception:
             return None
     return _redis_client
