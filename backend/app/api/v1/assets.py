@@ -67,7 +67,6 @@ async def upload_asset(
     organization_id: str = Form(None),
     current_user: User = Depends(get_current_user_dep),
     db: Session = Depends(get_db),
-    _rate: None = Depends(rate_limit(limit=10)),
 ):
     asset_type, ext = validate_file(file.filename, file.content_type)
     asset_id = uuid.uuid4()
