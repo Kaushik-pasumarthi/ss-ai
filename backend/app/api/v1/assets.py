@@ -94,7 +94,7 @@ async def upload_asset(
         from app.worker.tasks import fingerprint_and_embed
         fingerprint_and_embed.delay(str(asset_id))
     except Exception:
-        pass  # Worker may not be available in test env
+        pass
 
     return AssetUploadResponse(asset_id=asset_id, status="uploading", message="Asset upload accepted. Processing started.")
 
