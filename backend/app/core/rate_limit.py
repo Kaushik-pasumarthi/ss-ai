@@ -9,7 +9,10 @@ _redis_client = None
 def get_redis():
     global _redis_client
     if _redis_client is None:
-        _redis_client = redis_lib.from_url(settings.redis_url, decode_responses=True)
+        try:
+            _redis_client = redis_lib.from_url(settings.redis_url, decode_responses=True, socket_connect_timeout=2)
+        except Exception:
+            return None
     return _redis_client
 
 
@@ -19,6 +22,8 @@ def rate_limit(limit: int = None, window: int = 60):
 
     async def checker(request: Request):
         r = get_redis()
+        if r is None:
+            return  # Skip rate limiting if Redis unavailable
         # Use user ID from JWT if available, else IP
         auth = request.headers.get("authorization", "")
         key_id = request.client.host
