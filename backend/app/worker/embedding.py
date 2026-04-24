@@ -9,6 +9,11 @@ _preprocess = None
 def _get_model():
     global _model, _preprocess
     if _model is None:
+        # Check if we should use mock mode (low memory environments)
+        import os
+        if os.environ.get("USE_MOCK_EMBEDDINGS", "false").lower() == "true":
+            _model = "mock"
+            return _model, _preprocess
         try:
             import torch
             import open_clip
