@@ -42,8 +42,6 @@ def validate_file(filename: str, content_type: str) -> tuple[str, str]:
     asset_type = detect_asset_type(filename)
     if not asset_type:
         raise HTTPException(status_code=422, detail="Unsupported file type. Accepted: mp4, mov, avi, jpg, png, webp, svg")
-    if content_type not in SUPPORTED_MIMES:
-        raise HTTPException(status_code=422, detail="Unsupported file type. Accepted: mp4, mov, avi, jpg, png, webp, svg")
     return asset_type, ext
 
 

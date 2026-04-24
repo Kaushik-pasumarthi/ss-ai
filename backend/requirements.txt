@@ -15,7 +15,6 @@ pillow
 imagehash
 opencv-python-headless
 numpy
-python-magic
 reportlab
 hypothesis
 pytest
