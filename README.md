@@ -1,7 +1,10 @@
 # SportShield AI
 
 A full-stack anti-piracy and unauthorized sports media tracking platform. SportShield AI authenticates official media assets via perceptual fingerprinting and CNN embeddings, detects unauthorized copies using FAISS-powered similarity search, and surfaces real-time alerts through a futuristic dashboard.
-link to actual dashboard- https://sport-shield-ai.onrender.com/
+
+link to actual dashboard- https://sport-shield-ai.onrender.com/ 
+
+**please visit  the following website to actually see whats happening behind the model.**
 link to raw engine- https://sportshield-ai-nine.vercel.app/
 ## Stack
 
