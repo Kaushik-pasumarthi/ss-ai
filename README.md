@@ -7,6 +7,7 @@ link to actual dashboard- https://sport-shield-ai.onrender.com/
 **please visit  the following website to actually see whats happening behind the model.**
 
 link to raw engine- https://sportshield-ai-nine.vercel.app/
+repo link- https://github.com/Kaushik-pasumarthi/Tensai-no-me
 ## Stack
 
 - **Frontend**: Next.js 14 (App Router), Tailwind CSS, Framer Motion, Recharts, Socket.IO client
