@@ -5,6 +5,7 @@ A full-stack anti-piracy and unauthorized sports media tracking platform. SportS
 link to actual dashboard- https://sport-shield-ai.onrender.com/ 
 
 **please visit  the following website to actually see whats happening behind the model.**
+
 link to raw engine- https://sportshield-ai-nine.vercel.app/
 ## Stack
 
