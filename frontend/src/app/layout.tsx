@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description: 'AI-powered sports media protection and unauthorized content detection',
 }
 
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="dark">
