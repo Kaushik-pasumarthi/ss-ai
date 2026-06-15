@@ -4,7 +4,7 @@ from typing import Any, Optional
 from pydantic import BaseModel, ConfigDict, EmailStr
 
 
-# --- Organization ---
+# ---- Organization ----
 
 class OrganizationCreate(BaseModel):
     name: str
