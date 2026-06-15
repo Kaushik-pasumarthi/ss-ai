@@ -1,6 +1,6 @@
 FROM python:3.11-slim
 
-# System deps
+# System depss
 RUN apt-get update && apt-get install -y \
     libmagic1 libgl1 libglib2.0-0 \
     nodejs npm supervisor \
