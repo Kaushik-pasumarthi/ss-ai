@@ -6,7 +6,7 @@ from app.core.security import decode_token
 
 logger = logging.getLogger(__name__)
 
-# Create AsyncServer with Redis pub/sub manager for multi-process support
+# Create AsyncServer with Redis pub/sub manager for multi-process 
 try:
     mgr = socketio.AsyncRedisManager(settings.redis_url)
     sio = socketio.AsyncServer(
