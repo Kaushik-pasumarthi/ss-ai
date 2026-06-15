@@ -2,6 +2,7 @@
 _refresh_tokens: dict[str, str] = {}
 
 
+
 def store_refresh_token(user_id: str, token_hash: str):
     _refresh_tokens[user_id] = token_hash
 
